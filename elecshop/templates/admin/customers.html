@@ -1,0 +1,49 @@
+{% extends "nav.html" %}
+{% block content %}
+    
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+        <form class="d-flex">
+            <button class="btn btn-success mr-5">Add Customers</button>
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success ml-1" type="submit">Search</button>
+        </form>
+        </div>
+    </nav>
+    <table class="table table-light table-hover table-bordered ">
+        <thead>
+            <tr>
+            <th scope="col">Image</th>
+            <th scope="col">Id</th>
+            <th scope="col">Username</th>
+            <th scope="col">Firstname</th>
+            <th scope="col">Lastname</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Email</th>
+            <!-- <th scope="col">Edit</th>
+            <th scope="col">Delete</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            
+                {% for user in users.items %}
+                
+                <div class="media-body">
+                    <tr>
+                        <td><img class="rounded-circle article-img" src="{{ url_for('static', filename= 'profile_pics/' + user.image_file) }}"></td>
+                        <th >{{ user.id }}</th>
+                        <td >{{ user.user_name }}</td>
+                        <td >{{ user.first_name }}</td>
+                        <td >{{ user.last_name }}</td>
+                        <td >{{ user.contact_num }}</td>
+                        <td >{{ user.email }}</td>
+                        <!-- <td><button class="btn btn-warning btn-sm m-1 fa fa-edit"></button></td>
+                        <td><button class="btn btn-danger btn-sm m-1 fa fa-trash"></button></td> -->
+                    </tr>
+                </div>
+                {% endfor %} 
+            
+        </tbody>
+        </table>
+    
+{% endblock content %}

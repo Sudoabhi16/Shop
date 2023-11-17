@@ -1,0 +1,16 @@
+pip install Flask
+pip install flask-login
+pip install flask-sqlalchemy
+pip install flask-wtf
+pip install flask flask-wtf bootstrap-flask phonenumbers
+pip install flask-bcrypt
+pip install wtforms[email]
+pip install flask-mail
+pip install Pillow
+
+
+
+from elecshop import db
+
+
+

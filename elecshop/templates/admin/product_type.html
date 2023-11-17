@@ -1,0 +1,43 @@
+{% extends "nav.html" %}
+{% block content %}
+    
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+        <form class="d-flex">
+            <a class="btn btn-success mr-5" href="{{ url_for('admin.add_product_type') }}">Add Product Type</a>
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success ml-1" type="submit">Search</button>
+        </form>
+        </div>
+    </nav>
+    <table class="table table-light table-hover table-bordered ">
+        <thead>
+            <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Product Type</th>
+            <th scope="col">View</th>
+            <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                {% for type in types.items %}
+                
+                <div class="media-body">
+                    <tr>
+                        <td >{{ type.id }}</td>
+                        <td >{{ type.product_type }}</td>
+                        <td><a type="button" class="btn btn-warning btn-sm m-1 fa fa-edit" data-toggle="tooltip" data-placement="top" title="Edit Product Type" href="{{ url_for('admin.edit_product_type', type_id=type.id) }}"></a></td>
+                        <td><a type="button" class="btn btn-danger btn-sm m-1 fa fa-trash" data-toggle="tooltip" data-placement="top" title="Delete Product Type" href="{{ url_for('admin.delete_type', type_id=type.id) }}"></a></td>
+                    </tr>
+                </div>
+
+                
+                {% endfor %} 
+            
+        </tbody>
+        </table>
+
+        
+    
+{% endblock content %}
